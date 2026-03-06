@@ -1,3 +1,4 @@
+
 // E-LIBRARY MANAGEMENT SYSTEM
 // AUTHOR: BHAKKTI GAUTAM
 //DESCRIPTION:
@@ -21,7 +22,7 @@ void addbookinfo()
         }
         printf("ENTER THE BOOK INFORMATION AS FOLLOWS:\n");
         printf("ENTER THE NAME OF BOOK:\n");
-        %scanf(" %[^\n]", lb[i].bookname);
+        scanf(" %[^\n]", lb[i].bookname);
         printf("\nENTER THE AUTHOR NAME OF ABOVE BOOK:\n");
         scanf("%[^\n]",lb[i].author);
         printf("\nENTER THE NUMBER OF PAGES IN ABOVE BOOK:\n");
@@ -114,3 +115,4 @@ return 0;
 
 
                
+
