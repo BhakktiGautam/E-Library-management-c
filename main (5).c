@@ -6,7 +6,7 @@
 #include<stdlib.h>
 struct librarybooks{
         char bookname[50];
-        char author[15];
+        char author[50];
         int pages;
         int price;
 };
@@ -14,14 +14,19 @@ int i=0;
 struct librarybooks lb[100];
 void addbookinfo()
 {
+        if(i>=100)
+        {
+            printf("LIBRARY STORAGE FULL\n");
+            return;
+        }
         printf("ENTER THE BOOK INFORMATION AS FOLLOWS:\n");
         printf("ENTER THE NAME OF BOOK:\n");
-        scanf("%s",lb[i].bookname);
+        %scanf(" %[^\n]", lb[i].bookname);
         printf("\nENTER THE AUTHOR NAME OF ABOVE BOOK:\n");
-        scanf("%s",lb[i].author);
+        scanf("%[^\n]",lb[i].author);
         printf("\nENTER THE NUMBER OF PAGES IN ABOVE BOOK:\n");
         scanf(" %d",&lb[i].pages);
-        printf("\nENTER THEPRICEOF ABOVE BOOK:");
+        printf("\nENTER THE PRICE OF ABOVE BOOK:");
         scanf(" %d",&lb[i].price);
         printf("BOOK ADDED SUCCESSFULLY\n");
         i++;
@@ -51,10 +56,14 @@ void displaybookinfo()
 }
 void listofallbooks()
 {
-
+        if(i==0)
+{
+    printf("NO BOOKS AVAILABLE IN LIBRARY\n");
+    return;
+}
         printf("THE LIST OF ALL BOOKS AVAILABLE ARE:\n");
         printf("NAME OF BOOK\tAUTHOR\tNUMBER OF PAGES\tPRICE\n");
-        for(int k=0;k<=i;k++)
+        for(int k=0;k<i;k++)
         {
                 printf("\n%s\t%s\t%d\t%d\n",lb[k].bookname,lb[k].author,lb[k].pages,lb[k].price);
                 
@@ -62,14 +71,14 @@ void listofallbooks()
 }
 void totalnumberofbooks()
 {
-        printf("THE TOTAL NUMBER OF BOOKS CAN BE KEPTS IS 100");
+        printf("THE TOTAL NUMBER OF BOOKS CAN BE KEPTS IS 100\n");
         printf("THE BOOKS PRESENT IN LIBRARY IS %d",i);
 }
 int main()
 {
     int option;
         do{
-        printf("ENTE THE SERIAL NUMBER OF OPERATION YOU WANT TO ATTEMPT\n");
+        printf("ENTER THE SERIAL NUMBER OF OPERATION YOU WANT TO ATTEMPT\n");
         printf("1.ADD A BOOK INFORMATION\n2.DISPLAY A SPECIFIC BOOK INFORMATION\n3.LIST ALL THE BOOKS PRESENT IN LIBRARY\n4.GIVE THE TOTAL NUMBER OF BOOKS PRESENT IN LIBRARY\n5.EXIT THE LIBRARY\n");
         scanf("%d",&option);
         if(option==1)
@@ -97,9 +106,10 @@ int main()
                 printf("INVALID CHOICE BY USER");
         }
         }
-        while(1);
+        while(option!=5);
 return 0;
 }
+
 
 
 
